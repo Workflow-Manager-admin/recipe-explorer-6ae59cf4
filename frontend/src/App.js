@@ -319,6 +319,127 @@ function App() {
         "Let cool and enjoy."
       ],
       tags: ["dessert", "quick", "microwave"]
+    },
+    {
+      id: 3,
+      name: "Caprese Salad",
+      ingredients: [
+        "3 tomatoes",
+        "200g mozzarella",
+        "Fresh basil",
+        "Olive oil",
+        "Salt",
+        "Balsamic vinegar"
+      ],
+      instructions: [
+        "Slice tomatoes and mozzarella.",
+        "Arrange on plate alternating slices.",
+        "Scatter fresh basil on top.",
+        "Drizzle with olive oil and balsamic vinegar.",
+        "Season with salt and serve."
+      ],
+      tags: ["salad", "vegetarian", "italian"]
+    },
+    {
+      id: 4,
+      name: "Chicken Stir Fry",
+      ingredients: [
+        "2 chicken breasts",
+        "1 bell pepper",
+        "1 onion",
+        "2 tbsp soy sauce",
+        "1 tbsp sesame oil",
+        "Assorted vegetables"
+      ],
+      instructions: [
+        "Cut chicken into strips.",
+        "Chop vegetables.",
+        "Heat oil, cook chicken until browned.",
+        "Add vegetables and stir fry.",
+        "Pour in soy sauce, cook 2 min.",
+        "Serve hot."
+      ],
+      tags: ["asian", "chicken", "healthy"]
+    },
+    {
+      id: 5,
+      name: "Avocado Toast",
+      ingredients: [
+        "2 slices sourdough bread",
+        "1 ripe avocado",
+        "Chili flakes",
+        "Lemon juice",
+        "Salt and pepper"
+      ],
+      instructions: [
+        "Toast bread.",
+        "Mash avocado with lemon juice, salt, pepper.",
+        "Spread on toast.",
+        "Sprinkle chili flakes.",
+        "Serve immediately."
+      ],
+      tags: ["breakfast", "vegan", "quick"]
+    },
+    {
+      id: 6,
+      name: "Classic Pancakes",
+      ingredients: [
+        "1 cup flour",
+        "1 cup milk",
+        "1 egg",
+        "2 tbsp sugar",
+        "1 tsp baking powder",
+        "Pinch of salt",
+        "Butter for cooking"
+      ],
+      instructions: [
+        "Mix dry ingredients.",
+        "Whisk milk and egg, add to dry mix.",
+        "Heat pan, melt butter.",
+        "Pour batter, cook until bubbles form, flip.",
+        "Serve with syrup."
+      ],
+      tags: ["breakfast", "sweet", "classic"]
+    },
+    {
+      id: 7,
+      name: "Greek Salad",
+      ingredients: [
+        "1 cucumber",
+        "2 tomatoes",
+        "1/2 onion",
+        "100g feta cheese",
+        "Olives",
+        "Olive oil",
+        "Oregano"
+      ],
+      instructions: [
+        "Chop cucumber, tomatoes, onion.",
+        "Mix in bowl; add olives.",
+        "Top with feta and sprinkle oregano.",
+        "Drizzle with olive oil.",
+        "Toss lightly and serve."
+      ],
+      tags: ["salad", "greek", "vegetarian"]
+    },
+    {
+      id: 8,
+      name: "Beef Tacos",
+      ingredients: [
+        "250g ground beef",
+        "Taco shells",
+        "Lettuce",
+        "Cheddar cheese",
+        "Salsa",
+        "Taco seasoning"
+      ],
+      instructions: [
+        "Cook ground beef with taco seasoning.",
+        "Heat shells.",
+        "Fill shells with beef, lettuce, cheese, salsa.",
+        "Serve right away."
+      ],
+      tags: ["mexican", "beef", "dinner"]
     }
   ]);
   const [search, setSearch] = useState("");
