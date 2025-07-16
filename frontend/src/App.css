@@ -27,13 +27,33 @@ body, html, .App {
   margin: 0;
   padding: 0;
   font-family: "Segoe UI", "Roboto", Arial, sans-serif;
-  background: var(--bg-light);
+  /* Add a modern light gradient background for light theme */
+  background: linear-gradient(
+    120deg,
+    #f5fcf7 0%,
+    #e9f4fa 40%,
+    #fcf8e7 100%
+  );
   color: var(--text-primary);
   transition: background .3s, color .3s;
 }
+
+[data-theme="dark"] body,
+[data-theme="dark"] html,
+[data-theme="dark"] .App {
+  /* Ensure the dark theme background is solid and not affected by the gradient */
+  background: var(--bg-light) !important;
+}
+
 .recipe-explorer-app {
   min-height: 100vh;
-  background: var(--bg-light);
+  /* Use a lighter, subtle gradient to enhance experience while maintaining card contrast */
+  background: linear-gradient(
+    120deg,
+    #f5fcf7 0%,
+    #e9f4fa 40%,
+    #fcf8e7 100%
+  );
   color: var(--text-primary);
 }
 
