@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import RecipeCard from "./components/RecipeCard";
+import "./components/RecipeCard.css";
 
 // PUBLIC_INTERFACE
 function Sidebar({ recipes, selectedId, onSelect, onAdd, onSearch, search }) {
@@ -44,13 +46,61 @@ function Sidebar({ recipes, selectedId, onSelect, onAdd, onSearch, search }) {
   );
 }
 
-// PUBLIC_INTERFACE
-function RecipeDetails({ recipe, onEdit, onDelete }) {
-  /** Main area for viewing recipe details. */
+/**
+ * Main area for viewing recipe details or showing the recipe cards grid.
+ * @param {object} props
+ * @param {object} props.recipe - The selected recipe, or null if none selected.
+ * @param {function} props.onEdit - Callback for editing a recipe.
+ * @param {function} props.onDelete - Callback for deleting a recipe.
+ * @param {array} [props.recipeCardsList] - Optional list of recipes for the grid.
+ */
+function RecipeDetails({ recipe, onEdit, onDelete, recipeCardsList }) {
   if (!recipe) {
+    // Show a beautiful, responsive grid of RecipeCards for all recipes.
     return (
-      <main className="main-content empty" data-testid="main-content-empty">
-        <h2>Select a recipe to view details</h2>
+      <main className="main-content" data-testid="main-content-empty">
+        <h2>Browse Recipes</h2>
+        <div
+          className="recipe-cards-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(255px, 1fr))",
+            gap: "2rem",
+            width: "100%",
+            marginTop: "2rem"
+          }}
+        >
+          {recipeCardsList && recipeCardsList.length === 0 ? (
+            <div
+              style={{
+                gridColumn: "1 / -1",
+                color: "var(--text-secondary)",
+                textAlign: "center",
+                fontSize: "1.12rem"
+              }}
+            >
+              No recipes found.
+            </div>
+          ) : (
+            recipeCardsList &&
+            recipeCardsList.map((r, ix) => (
+              <RecipeCard
+                key={r.id}
+                name={r.name}
+                description={
+                  r.ingredients && r.ingredients.length
+                    ? `Ingredients: ${r.ingredients.slice(0, 3).join(", ")}${
+                        r.ingredients.length > 3 ? "..." : ""
+                      }`
+                    : ""
+                }
+                tags={r.tags || []}
+                // Use a different mock/placeholder image for each entry for demo
+                image={`https://source.unsplash.com/featured/320x240?sig=${r.id}&food,recipe`}
+              />
+            ))
+          )}
+        </div>
       </main>
     );
   }
@@ -368,6 +418,7 @@ function App() {
           recipe={selectedRecipe}
           onEdit={handleEdit}
           onDelete={handleDelete}
+          recipeCardsList={filteredRecipes}
         />
         <RecipeModal
           show={modalOpen}
