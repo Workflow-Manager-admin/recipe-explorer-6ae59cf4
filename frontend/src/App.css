@@ -26,6 +26,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: "Segoe UI", "Roboto", Arial, sans-serif;
   /* Modern light gradient background for the entire app */
   background: linear-gradient(
@@ -35,14 +36,19 @@ html, body {
     #fcf8e7 100%
   );
   min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
   color: var(--text-primary);
   transition: background .3s, color .3s;
+  overflow-x: hidden;
 }
 
 .App,
 .recipe-explorer-app {
   min-height: 100vh;
+  height: 100vh;
   width: 100vw;
+  box-sizing: border-box;
   /* Ensure transparent background so parent gradient is visible */
   background: transparent !important;
 }
